@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #0a0a1a;
+  --bg2: #111128;
+  --bg3: #1a1a3e;
+  --card: rgba(25,25,60,0.7);
+  --border: rgba(100,100,255,0.15);
+  --accent: #6c63ff;
+  --accent2: #00d4ff;
+  --accent3: #ff6b9d;
+  --text: #e8e8f0;
+  --text2: #9090b0;
+  --green: #4ade80;
+  --yellow: #fbbf24;
+  --radius: 16px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+body::before {
+  content:'';
+  position:fixed;
+  top:-50%; left:-50%;
+  width:200%; height:200%;
+  background:radial-gradient(circle at 30% 20%, rgba(108,99,255,0.08) 0%, transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(0,212,255,0.06) 0%, transparent 50%);
+  z-index:-1;
+  animation:bgFloat 20s ease-in-out infinite;
+}
+
+@keyframes bgFloat {
+  0%,100%{ transform:translate(0,0); }
+  50%{ transform:translate(-2%,-2%); }
+}
+
+.container { max-width:900px; margin:0 auto; padding:20px; }
+
+/* HEADER */
+header {
+  text-align:center;
+  padding:60px 20px 40px;
+  position:relative;
+}
+
+header h1 {
+  font-size:clamp(2rem,5vw,3.2rem);
+  font-weight:800;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:10px;
+}
+
+header .subtitle {
+  font-size:1.1rem;
+  color:var(--text2);
+  font-weight:300;
+}
+
+header .badge {
+  display:inline-block;
+  margin-top:15px;
+  padding:6px 18px;
+  background:rgba(108,99,255,0.15);
+  border:1px solid rgba(108,99,255,0.3);
+  border-radius:20px;
+  font-size:0.85rem;
+  color:var(--accent);
+  font-weight:500;
+}
+
+/* CARDS */
+.step-card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:30px;
+  margin-bottom:24px;
+  -webkit-backdrop-filter:blur(10px);
+  backdrop-filter:blur(10px);
+  transition:transform 0.3s, border-color 0.3s;
+}
+
+.step-card:hover {
+  transform:translateY(-3px);
+  border-color:rgba(108,99,255,0.4);
+}
+
+.step-num {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:36px; height:36px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  border-radius:10px;
+  font-weight:700;
+  font-size:0.9rem;
+  margin-bottom:12px;
+  color:#fff;
+}
+
+.step-card h2 {
+  font-size:1.4rem;
+  font-weight:700;
+  margin-bottom:8px;
+  color:#fff;
+}
+
+.step-card h3 {
+  font-size:1.1rem;
+  color:var(--accent2);
+  margin:18px 0 8px;
+  font-weight:600;
+}
+
+.step-card p { color:var(--text2); margin-bottom:10px; }
+
+/* MATRIX */
+.matrix-wrap {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin:20px 0;
+  flex-wrap:wrap;
+  font-family:'JetBrains Mono',monospace;
+  font-size:1.1rem;
+}
+
+.matrix {
+  display:inline-flex;
+  flex-direction:column;
+  border-left:3px solid var(--accent);
+  border-right:3px solid var(--accent);
+  border-radius:4px;
+  padding:8px 14px;
+  background:rgba(108,99,255,0.05);
+}
+
+.matrix.det-style {
+  border-left:3px solid var(--accent3);
+  border-right:3px solid var(--accent3);
+  border-radius:0;
+  background:rgba(255,107,157,0.05);
+}
+
+.matrix-row {
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  padding:4px 0;
+}
+
+.matrix-row span {
+  min-width:30px;
+  text-align:center;
+  font-weight:500;
+}
+
+.sym {
+  font-size:1.3rem;
+  font-weight:700;
+  color:var(--accent);
+  display:flex;
+  align-items:center;
+}
+
+/* CALCULATION BLOCK */
+.calc {
+  background:rgba(0,0,0,0.3);
+  border-left:3px solid var(--accent);
+  border-radius:0 10px 10px 0;
+  padding:16px 20px;
+  margin:14px 0;
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.95rem;
+  line-height:2;
+}
+
+.calc .line { color:var(--text2); }
+.calc .hl { color:var(--accent2); font-weight:600; }
+.calc .result {
+  color:var(--green);
+  font-weight:700;
+  font-size:1.05rem;
+  padding:6px 12px;
+  background:rgba(74,222,128,0.1);
+  border-radius:8px;
+  display:inline-block;
+  margin-top:4px;
+}
+
+.calc .warn {
+  color:var(--yellow);
+  font-weight:600;
+}
+
+/* FORMULA BOX */
+.formula-box {
+  text-align:center;
+  padding:20px;
+  background:linear-gradient(135deg,rgba(108,99,255,0.1),rgba(0,212,255,0.1));
+  border:1px solid rgba(108,99,255,0.25);
+  border-radius:12px;
+  margin:16px 0;
+  font-family:'JetBrains Mono',monospace;
+  font-size:1.15rem;
+  font-weight:600;
+}
+
+.formula-box .big { font-size:1.4rem; color:var(--accent2); }
+
+/* ANSWER BOX */
+.answer-box {
+  text-align:center;
+  padding:24px;
+  background:linear-gradient(135deg,rgba(74,222,128,0.1),rgba(0,212,255,0.05));
+  border:2px solid rgba(74,222,128,0.3);
+  border-radius:14px;
+  margin:20px 0;
+}
+
+.answer-box h3 {
+  color:var(--green) !important;
+  font-size:1.3rem;
+  margin-bottom:10px !important;
+}
+
+.answer-box .val {
+  font-family:'JetBrains Mono',monospace;
+  font-size:1.6rem;
+  font-weight:700;
+  color:#fff;
+}
+
+/* SECTION DIVIDER */
+.divider {
+  text-align:center;
+  margin:40px 0;
+  position:relative;
+}
+
+.divider::before {
+  content:'';
+  position:absolute;
+  top:50%; left:0; right:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--border),transparent);
+}
+
+.divider span {
+  position:relative;
+  background:var(--bg);
+  padding:0 20px;
+  color:var(--accent);
+  font-weight:600;
+  font-size:0.9rem;
+  text-transform:uppercase;
+  letter-spacing:2px;
+}
+
+/* NOTE */
+.note {
+  padding:14px 18px;
+  background:rgba(251,191,36,0.08);
+  border-left:3px solid var(--yellow);
+  border-radius:0 10px 10px 0;
+  color:var(--yellow);
+  font-size:0.9rem;
+  margin:14px 0;
+}
+
+/* FOOTER */
+footer {
+  text-align:center;
+  padding:40px 20px;
+  color:var(--text2);
+  font-size:0.85rem;
+  border-top:1px solid var(--border);
+  margin-top:40px;
+}
+
+/* UTILITY CLASSES */
+.det-label {
+  color:var(--accent3);
+  font-weight:600;
+}
+
+.highlight-green {
+  color:var(--green);
+}
+
+.center-label {
+  text-align:center;
+  color:var(--accent2);
+  font-weight:600;
+}
+
+/* RESPONSIVE */
+@media(max-width:600px) {
+  .container { padding:12px; }
+  .step-card { padding:20px; }
+  .matrix-row { gap:12px; }
+  .matrix-wrap { font-size:0.95rem; }
+}

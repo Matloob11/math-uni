@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cramer's Rule — Complete Step-by-Step Guide</title>
+  <meta name="description" content="Learn Cramer's Rule for solving 2x2 and 3x3 simultaneous equations with detailed step-by-step solutions.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>📐 Cramer's Rule</h1>
+  <p class="subtitle">Solving Simultaneous Equations using Determinants</p>
+  <div class="badge">Inverse Matrix — 2×2 &amp; 3×3 by Equation</div>
+</header>
+
+<div class="container">
+
+  <!-- THEORY -->
+  <div class="step-card">
+    <div class="step-num">📘</div>
+    <h2>Cramer's Rule Kya Hai?</h2>
+    <p>Cramer's Rule ek method hai jis se hum <strong>simultaneous linear equations</strong> ko <strong>determinants</strong> ke zariye solve karte hain. Har variable ki value ek ratio se milti hai:</p>
+    <div class="formula-box">
+      <span class="big">x = |A₁| / |A|</span> &nbsp;&nbsp;&nbsp;
+      <span class="big">y = |A₂| / |A|</span>
+    </div>
+    <div class="note">⚠️ Condition: |A| ≠ 0 hona chahiye, warna system ka unique solution nahi hoga.</div>
+  </div>
+
+  <!-- ===================== 2x2 EXAMPLE ===================== -->
+  <div class="divider"><span>2 × 2 Example</span></div>
+
+  <!-- STEP 1 -->
+  <div class="step-card">
+    <div class="step-num">1</div>
+    <h2>Equations Likho</h2>
+    <p>Humein 2 simultaneous equations di gayi hain:</p>
+    <div class="formula-box">
+      2x + 3y = 4 &nbsp;&nbsp;&nbsp;···&nbsp;(i)<br>
+      10x − 2y = 3 &nbsp;&nbsp;&nbsp;···&nbsp;(ii)
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step-card">
+    <div class="step-num">2</div>
+    <h2>Matrix Form Mein Likho (AX = B)</h2>
+    <p>Equations ko matrix form mein convert karo:</p>
+    <div class="matrix-wrap">
+      <div class="matrix">
+        <div class="matrix-row"><span>2</span><span>3</span></div>
+        <div class="matrix-row"><span>10</span><span>−2</span></div>
+      </div>
+      <div class="matrix">
+        <div class="matrix-row"><span>x</span></div>
+        <div class="matrix-row"><span>y</span></div>
+      </div>
+      <span class="sym">=</span>
+      <div class="matrix">
+        <div class="matrix-row"><span>4</span></div>
+        <div class="matrix-row"><span>3</span></div>
+      </div>
+    </div>
+    <p class="center-label">A · X = B</p>
+    <p>Yahan <strong>A</strong> = coefficient matrix, <strong>X</strong> = variable matrix, <strong>B</strong> = constant matrix.</p>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step-card">
+    <div class="step-num">3</div>
+    <h2>Determinant |A| Nikalo</h2>
+    <p>Sabse pehle coefficient matrix A ka determinant find karo:</p>
+
+    <h3>Matrix A:</h3>
+    <div class="matrix-wrap">
+      <span class="det-label">|A| =</span>
+      <div class="matrix det-style">
+        <div class="matrix-row"><span>2</span><span>3</span></div>
+        <div class="matrix-row"><span>10</span><span>−2</span></div>
+      </div>
+    </div>
+
+    <h3>Expand karo (2×2 formula: ad − bc):</h3>
+    <div class="calc">
+      <div class="line">|A| = (2 × −2) − (10 × 3)</div>
+      <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;= <span class="hl">−4</span> − <span class="hl">30</span></div>
+      <div class="result">|A| = −34</div>
+    </div>
+    <div class="note">✅ |A| ≠ 0 hai, toh Cramer's Rule apply ho sakta hai!</div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step-card">
+    <div class="step-num">4</div>
+    <h2>|A₁| Nikalo — Column-1 Replace karo B se</h2>
+    <p>Matrix A ki <strong>pehli column</strong> ko constant matrix <strong>B</strong> ke values se replace karo:</p>
+
+    <div class="matrix-wrap">
+      <span class="det-label">|A₁| =</span>
+      <div class="matrix det-style">
+        <div class="matrix-row"><span class="highlight-green">4</span><span>3</span></div>
+        <div class="matrix-row"><span class="highlight-green">3</span><span>−2</span></div>
+      </div>
+    </div>
+
+    <h3>Expand karo:</h3>
+    <div class="calc">
+      <div class="line">|A₁| = (4 × −2) − (3 × 3)</div>
+      <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span class="hl">−8</span> − <span class="hl">9</span></div>
+      <div class="result">|A₁| = −17</div>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step-card">
+    <div class="step-num">5</div>
+    <h2>|A₂| Nikalo — Column-2 Replace karo B se</h2>
+    <p>Matrix A ki <strong>doosri column</strong> ko constant matrix <strong>B</strong> ke values se replace karo:</p>
+
+    <div class="matrix-wrap">
+      <span class="det-label">|A₂| =</span>
+      <div class="matrix det-style">
+        <div class="matrix-row"><span>2</span><span class="highlight-green">4</span></div>
+        <div class="matrix-row"><span>10</span><span class="highlight-green">3</span></div>
+      </div>
+    </div>
+
+    <h3>Expand karo:</h3>
+    <div class="calc">
+      <div class="line">|A₂| = (2 × 3) − (10 × 4)</div>
+      <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span class="hl">6</span> − <span class="hl">40</span></div>
+      <div class="result">|A₂| = −34</div>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step-card">
+    <div class="step-num">6</div>
+    <h2>Cramer's Rule Apply Karo</h2>
+    <p>Ab formula use karo values nikalne ke liye:</p>
+
+    <div class="formula-box">
+      <span class="big">x = |A₁| / |A|</span> &nbsp;&nbsp;&nbsp;
+      <span class="big">y = |A₂| / |A|</span>
+    </div>
+
+    <h3>x ki value:</h3>
+    <div class="calc">
+      <div class="line">x = |A₁| / |A|</div>
+      <div class="line">x = −17 / −34</div>
+      <div class="result">x = 1/2</div>
+    </div>
+
+    <h3>y ki value:</h3>
+    <div class="calc">
+      <div class="line">y = |A₂| / |A|</div>
+      <div class="line">y = −34 / −34</div>
+      <div class="result">y = 1</div>
+    </div>
+  </div>
+
+  <!-- STEP 7: VERIFICATION -->
+  <div class="step-card">
+    <div class="step-num">✓</div>
+    <h2>Verification — Jawab Check Karo</h2>
+    <p>Values wapas equations mein daal ke check karo:</p>
+    <div class="calc">
+      <div class="line"><span class="warn">Eq (i):</span> 2(1/2) + 3(1) = 1 + 3 = <span class="hl">4</span> ✅</div>
+      <div class="line"><span class="warn">Eq (ii):</span> 10(1/2) − 2(1) = 5 − 2 = <span class="hl">3</span> ✅</div>
+    </div>
+
+    <div class="answer-box">
+      <h3>✨ Final Answer (2×2)</h3>
+      <div class="val">x = 1/2 &nbsp;&nbsp;,&nbsp;&nbsp; y = 1</div>
+    </div>
+  </div>
+
+  <!-- ===================== 3x3 EXAMPLE ===================== -->
+  <div class="divider"><span>3 × 3 Example</span></div>
+
+  <!-- 3x3 STEP 1 -->
+  <div class="step-card">
+    <div class="step-num">1</div>
+    <h2>3 Simultaneous Equations Likho</h2>
+    <p>Ab hum 3 variables (x, y, z) wale system ko solve karenge:</p>
+    <div class="formula-box">
+      3x − 4y + 3z = 6 &nbsp;&nbsp;&nbsp;···&nbsp;(i)<br>
+      4x − 2y + z = −2 &nbsp;&nbsp;&nbsp;···&nbsp;(ii)<br>
+      3x + 10z = 1 &nbsp;&nbsp;&nbsp;···&nbsp;(iii)
+    </div>
+    <div class="note">📝 Equation (iii) mein y ka coefficient 0 hai, isliye y nahi likha.</div>
+  </div>
+
+  <!-- 3x3 STEP 2 -->
+  <div class="step-card">
+    <div class="step-num">2</div>
+    <h2>Matrix Form (AX = B)</h2>
+    <div class="matrix-wrap">
+      <div class="matrix">
+        <div class="matrix-row"><span>3</span><span>−4</span><span>3</span></div>
+        <div class="matrix-row"><span>4</span><span>−2</span><span>1</span></div>
+        <div class="matrix-row"><span>3</span><span>0</span><span>10</span></div>
+      </div>
+      <div class="matrix">
+        <div class="matrix-row"><span>x</span></div>
+        <div class="matrix-row"><span>y</span></div>
+        <div class="matrix-row"><span>z</span></div>
+      </div>
+      <span class="sym">=</span>
+      <div class="matrix">
+        <div class="matrix-row"><span>6</span></div>
+        <div class="matrix-row"><span>−2</span></div>
+        <div class="matrix-row"><span>1</span></div>
+      </div>
+    </div>
+    <p class="center-label">A · X = B</p>
+  </div>
+
+  <!-- 3x3 STEP 3 -->
+  <div class="step-card">
+    <div class="step-num">3</div>
+    <h2>|A| Nikalo (3×3 Determinant)</h2>
+    <p>3×3 determinant ko <strong>first row expansion</strong> (cofactor expansion) se expand karo:</p>
+
+    <div class="matrix-wrap">
+      <span class="det-label">|A| =</span>
+      <div class="matrix det-style">
+        <div class="matrix-row"><span>3</span><span>−4</span><span>3</span></div>
+        <div class="matrix-row"><span>4</span><span>−2</span><span>1</span></div>
+        <div class="matrix-row"><span>3</span><span>0</span><span>10</span></div>
+      </div>
+    </div>
+
+    <h3>Row 1 ke along expand karo:</h3>
+    <div class="calc">
+      <div class="line">|A| = 3[(-2)(10) - (1)(0)] - (-4)[(4)(10) - (1)(3)] + 3[(4)(0) - (-2)(3)]</div>
+      <div class="line">&nbsp;&nbsp;&nbsp;= 3[−20 − 0] + 4[40 − 3] + 3[0 + 6]</div>
+      <div class="line">&nbsp;&nbsp;&nbsp;= 3(−20) + 4(37) + 3(6)</div>
+      <div class="line">&nbsp;&nbsp;&nbsp;= −60 + 148 + 18</div>
+      <div class="result">|A| = 106</div>
+    </div>
+  </div>
+
+  <!-- 3x3 STEP 4 -->
+  <div class="step-card">
+    <div class="step-num">4</div>
+    <h2>|A₁| — Column-1 Replace with B</h2>
+    <div class="matrix-wrap">
+      <span class="det-label">|A₁| =</span>
+      <div class="matrix det-style">
+        <div class="matrix-row"><span class="highlight-green">6</span><span>−4</span><span>3</span></div>
+        <div class="matrix-row"><span class="highlight-green">−2</span><span>−2</span><span>1</span></div>
+        <div class="matrix-row"><span class="highlight-green">1</span><span>0</span><span>10</span></div>
+      </div>
+    </div>
+    <div class="calc">
+      <div class="line">|A₁| = 6[(-2)(10) - (1)(0)] - (-4)[(-2)(10) - (1)(1)] + 3[(-2)(0) - (-2)(1)]</div>
+      <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;= 6(−20) + 4(−21) + 3(2)</div>
+      <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;= −120 − 84 + 6</div>
+      <div class="result">|A₁| = −198</div>
+    </div>
+  </div>
+
+  <!-- 3x3 STEP 5 -->
+  <div class="step-card">
+    <div class="step-num">5</div>
+    <h2>|A₂| — Column-2 Replace with B</h2>
+    <div class="matrix-wrap">
+      <span class="det-label">|A₂| =</span>
+      <div class="matrix det-style">
+        <div class="matrix-row"><span>3</span><span class="highlight-green">6</span><span>3</span></div>
+        <div class="matrix-row"><span>4</span><span class="highlight-green">−2</span><span>1</span></div>
+        <div class="matrix-row"><span>3</span><span class="highlight-green">1</span><span>10</span></div>
+      </div>
+    </div>
+    <div class="calc">
+      <div class="line">|A₂| = 3[(-2)(10) - (1)(1)] - 6[(4)(10) - (1)(3)] + 3[(4)(1) - (-2)(3)]</div>
+      <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;= 3(−21) − 6(37) + 3(10)</div>
+      <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;= −63 − 222 + 30</div>
+      <div class="result">|A₂| = −255</div>
+    </div>
+  </div>
+
+  <!-- 3x3 STEP 6 -->
+  <div class="step-card">
+    <div class="step-num">6</div>
+    <h2>|A₃| — Column-3 Replace with B</h2>
+    <div class="matrix-wrap">
+      <span class="det-label">|A₃| =</span>
+      <div class="matrix det-style">
+        <div class="matrix-row"><span>3</span><span>−4</span><span class="highlight-green">6</span></div>
+        <div class="matrix-row"><span>4</span><span>−2</span><span class="highlight-green">−2</span></div>
+        <div class="matrix-row"><span>3</span><span>0</span><span class="highlight-green">1</span></div>
+      </div>
+    </div>
+    <div class="calc">
+      <div class="line">|A₃| = 3[(-2)(1) - (-2)(0)] - (-4)[(4)(1) - (-2)(3)] + 6[(4)(0) - (-2)(3)]</div>
+      <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;= 3(−2) + 4(10) + 6(6)</div>
+      <div class="line">&nbsp;&nbsp;&nbsp;&nbsp;= −6 + 40 + 36</div>
+      <div class="result">|A₃| = 70</div>
+    </div>
+  </div>
+
+  <!-- 3x3 STEP 7 -->
+  <div class="step-card">
+    <div class="step-num">7</div>
+    <h2>Cramer's Rule Apply Karo (3×3)</h2>
+    <div class="formula-box">
+      <span class="big">x = |A₁|/|A|</span> &nbsp;&nbsp;
+      <span class="big">y = |A₂|/|A|</span> &nbsp;&nbsp;
+      <span class="big">z = |A₃|/|A|</span>
+    </div>
+
+    <div class="calc">
+      <div class="line">x = |A₁| / |A| = −198 / 106 = <span class="hl">−99/53</span></div>
+      <div class="line">y = |A₂| / |A| = −255 / 106 = <span class="hl">−255/106</span></div>
+      <div class="line">z = |A₃| / |A| = 70 / 106 = <span class="hl">35/53</span></div>
+    </div>
+
+    <div class="answer-box">
+      <h3>✨ Final Answer (3×3)</h3>
+      <div class="val">x = −99/53 &nbsp;,&nbsp; y = −255/106 &nbsp;,&nbsp; z = 35/53</div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="divider"><span>Quick Summary</span></div>
+
+  <div class="step-card">
+    <div class="step-num">📋</div>
+    <h2>Cramer's Rule — Steps Summary</h2>
+    <div class="calc">
+      <div class="line"><span class="warn">Step 1:</span> Equations likho</div>
+      <div class="line"><span class="warn">Step 2:</span> Matrix form AX = B banao</div>
+      <div class="line"><span class="warn">Step 3:</span> |A| (coefficient matrix ka determinant) nikalo</div>
+      <div class="line"><span class="warn">Step 4:</span> |A₁| nikalo — Col-1 replace with B</div>
+      <div class="line"><span class="warn">Step 5:</span> |A₂| nikalo — Col-2 replace with B</div>
+      <div class="line"><span class="warn">Step 6:</span> (3×3 ke liye) |A₃| nikalo — Col-3 replace with B</div>
+      <div class="line"><span class="warn">Step 7:</span> Formula apply karo: x = |A₁|/|A|, y = |A₂|/|A|, z = |A₃|/|A|</div>
+      <div class="line"><span class="warn">Step 8:</span> Verification — values equations mein daal ke check karo ✅</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>📐 Cramer's Rule — Mathematics Notes &copy; 2026</p>
+</footer>
+
+</body>
+</html>
